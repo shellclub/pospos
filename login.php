@@ -93,7 +93,8 @@
     $(document).on('submit', '#frm_login', function() {
       var url = $(this).attr('action');
       var data = new FormData();
-      console.log("click submit");
+
+      console.log("click submit sfsdfsdf");
       return false;
     })
   </script>
