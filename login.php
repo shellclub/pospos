@@ -92,9 +92,26 @@
   <script>
     $(document).on('submit', '#frm_login', function() {
       var url = $(this).attr('action');
-      var data = new FormData();
+      var data = new FormData(this);
 
-      console.log("click submit sfsdfsdf");
+      $.ajax({
+        url: url,
+        type: 'POST',
+        dataType: "JSON",
+        data: data,
+        contentType: false,
+        processData: false,
+        success: function(res, status) {
+          console.log(res.status);
+          console.log(res.massage);
+
+        },
+        error: function(xhr, status, error) {
+          console.log(xhr);
+          console.log(status);
+          console.log(error);
+        }
+      })
       return false;
     })
   </script>

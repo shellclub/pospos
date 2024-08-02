@@ -1,5 +1,6 @@
 <?php
 include '../connect.php';
+
 if (isset($_REQUEST)) {
   $sql = "SELECT * FROM tb_user WHERE username = '" . $_REQUEST['username'] . "' AND password = '" . $_REQUEST['password'] . "' ";
   $query = $conn->query($sql);
@@ -10,8 +11,8 @@ if (isset($_REQUEST)) {
     session_start();
     $_SESSION['sess_id'] = session_id();
     $_SESSION['sess_fullname'] = $result->fullname;
-    echo json_encode(array('status' => 'true', 'message' => "Successfully"));
+    echo json_encode(array('status' => true, 'message' => "Successfully"));
   } else {
-    echo json_encode(array('status' => 'false', 'message' => "Username or Password is incorrect"));
+    echo json_encode(array('status' => false, 'message' => "Username or Password is incorrect"));
   }
 }
